@@ -1,17 +1,16 @@
 /* 
-  EventStore API
+  Annales Event Store API
   Copyright (C) 2023, Alessandro Santini
   All Rights Reserved.
 
   Published under the Apache-2.0 license, see LICENSE for more information.
 */
-
 syntax = "proto3";
 
-package eventstore;
+package annales;
 
-option go_package = "toremo.com/eventstore";
-option java_package = "com.github.spolab.eventstore";
+option go_package = "github.com/spoletum/annales";
+option java_package = "com.spoletum.annales";
 
 // An event as it is returned from the Get event
 message Event {
