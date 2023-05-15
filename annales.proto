@@ -14,7 +14,6 @@ option java_package = "com.spoletum.annales";
 
 // An event as it is returned from the Get event
 message Event {
-  int64 event_id = 1;
   string stream_id = 2;
   int64 version = 3; 
   string event_type = 4;
@@ -61,9 +60,22 @@ message GetEventResponse {
   Event event = 1;
 }
 
+message GetMetricsRequest {
+}
+
+message GetMetricsResponse {
+  int64 append_requests = 1;
+  int64 read_requests = 2;
+  int64 events_read = 3;
+  int64 cache_misses = 4;
+  int64 cache_hits = 5;
+  int64 cache_size = 6;
+}
+
 service Journal {
   rpc AppendEvent(AppendEventRequest) returns (AppendEventResponse) {}
   rpc GetStreamEvents(GetStreamEventsRequest) returns (GetStreamEventsResponse) {}
   rpc GetStreamInfo(GetStreamInfoRequest) returns (GetStreamInfoResponse) {}
   rpc GetEvent(GetEventRequest) returns (GetEventResponse) {}
+  rpc GetMetrics(GetMetricsRequest) returns (GetMetricsResponse) {}
 }
